@@ -2965,13 +2965,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #f4623a;
-  border-color: #f4623a;
+  background-color: #80e5ff;
+  border-color: #80e5ff;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #cf5331;
-  border-color: #c34e2e;
+  background-color: #1b7a92;
+  border-color: #1b7a92;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -2989,7 +2989,6 @@ textarea.form-control-lg {
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #f4623a;
   border-color: #f4623a;
 }
 
@@ -3867,7 +3866,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #f4623a;
+  color: #80e5ff;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3924,7 +3923,7 @@ textarea.form-control-lg {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #f4623a;
+  background-color: #80e5ff;
 }
 
 .nav-fill > .nav-link,
@@ -4569,7 +4568,7 @@ textarea.form-control-lg {
 .page-link {
   position: relative;
   display: block;
-  color: #f4623a;
+  color: #80e5ff;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
@@ -4600,8 +4599,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #f4623a;
-  border-color: #f4623a;
+  background-color: #80e5ff;
+  border-color: #80e5ff;
 }
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -4797,7 +4796,7 @@ textarea.form-control-lg {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #f4623a;
+  background-color: #80e5ff;
   transition: width 0.6s ease;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4880,8 +4879,8 @@ textarea.form-control-lg {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #f4623a;
-  border-color: #f4623a;
+  background-color: #80e5ff;
+  border-color: #80e5ff;
 }
 .list-group-item + .list-group-item {
   border-top-width: 0;
@@ -6120,7 +6119,7 @@ textarea.form-control-lg {
 }
 
 .link-primary {
-  color: #f4623a;
+  color: #80e5ff;
 }
 .link-primary:hover, .link-primary:focus {
   color: #c34e2e;
@@ -6523,7 +6522,7 @@ textarea.form-control-lg {
 }
 
 .border-primary {
-  border-color: #f4623a !important;
+  border-color:  #80e5ff!important;
 }
 
 .border-secondary {
@@ -7352,7 +7351,7 @@ textarea.form-control-lg {
 
 /* rtl:end:remove */
 .text-primary {
-  color: #f4623a !important;
+  color: #80e5ff !important;
 }
 
 .text-secondary {
@@ -7408,7 +7407,7 @@ textarea.form-control-lg {
 }
 
 .bg-primary {
-  background-color: #f4623a !important;
+  background-color:   #80e5ff !important;
 }
 
 .bg-secondary {
@@ -10867,7 +10866,7 @@ body {
 }
 
 .text-white-75 {
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: rgba(255, 255, 255, 255) !important;
 }
 
 .btn-xl {
@@ -10883,7 +10882,7 @@ hr.divider {
   height: 0.2rem;
   max-width: 3.25rem;
   margin: 1.5rem auto;
-  background-color: #f4623a;
+  background-color: #80e5ff;
   opacity: 1;
 }
 
@@ -10909,10 +10908,10 @@ hr.divider-light {
   padding: 0.75rem 0;
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
-  color: #f4623a;
+  color: #80e5ff;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
-  color: #f4623a !important;
+  color: #80e5ff !important;
 }
 @media (min-width: 992px) {
   #mainNav {
@@ -10943,13 +10942,13 @@ hr.divider-light {
     color: #212529;
   }
   #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f4623a;
+    color: #80e5ff;
   }
   #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
     color: #212529;
   }
   #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
-    color: #f4623a;
+    color: #80e5ff;
   }
 }
 
@@ -11004,7 +11003,7 @@ header.masthead h1, header.masthead .h1 {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(244, 98, 58, 0.9);
+  background: #80e5ff;
   transition: opacity 0.25s ease;
   text-align: center;
 }
