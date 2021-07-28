@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@renderHomePage');
+Route::get('/menu', 'App\Http\Controllers\MenuController@renderMenuPage');
