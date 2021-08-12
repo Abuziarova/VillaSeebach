@@ -8,7 +8,6 @@ class MenuController extends Controller
 {
     public function renderMenuPage(){
         $db = \DB::connection();
-        dd($db);
         return view('menu');
     }
 }

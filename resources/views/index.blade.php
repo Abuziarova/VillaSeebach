@@ -53,29 +53,28 @@
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2"> <a class="nav-link" href="/menu"><i class="bi bi-book fs-1 text-primary"></i></a></div>
-                        
+                        <div class="mb-2"> <a class="nav-servise" href="/menu"><i class="bi bi-book fs-1 text-primary"></i></a></div>
                         <h3 class="h4 mb-2">Menu</h3>
                         <p class="text-muted mb-0">Sprawdź nasze menu</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2"><i class="bi bi-truck fs-1 text-primary"></i></div>
+                    <div class="mb-2"> <a class="nav-servise" href="#"><i class="bi bi-truck fs-1 text-primary"></i></a></div>
                         <h3 class="h4 mb-2">Zamówienia</h3>
                         <p class="text-muted mb-0">Złóż zamówienie online z dostawą lub odbiorem osobistym</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2"><i class="bi bi-calendar2-check fs-1 text-primary"></i></div>
+                    <div class="mb-2"> <a class="nav-servise" href="#"><i class="bi bi-calendar2-check fs-1 text-primary"></i></a></div>
                         <h3 class="h4 mb-2">Rezerwacja</h3>
                         <p class="text-muted mb-0">Zarezewuj stolik i wybierz dania online</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2"><i class="bi bi-flower1 fs-1 text-primary"></i></div>
+                    <div class="mb-2"> <a class="nav-servise" href="#"><i class="bi bi-flower1 fs-1 text-primary"></i></a></div>
                         <h3 class="h4 mb-2">Imprezy</h3>
                         <p class="text-muted mb-0">Organizacja imprez okolicznościowych</p>
                     </div>
@@ -226,4 +225,16 @@
             </div>
         </div>
     </section>
+    
+    <script src="js/scripts.js"></script>
+     <!-- Bootstrap core JS-->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 @endsection
