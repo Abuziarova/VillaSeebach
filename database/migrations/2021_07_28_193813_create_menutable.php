@@ -16,9 +16,10 @@ class CreateMenutable extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
             $table->string('title', 250);
-            $table->text('deskription');
+            $table->text('description');
             $table->double('price');
-            $table->string('image', 100)->nulable();
+            $table->string('image', 100)->nullable();
+            $table->string('group', 100)->nullable();
             $table->boolean('isActive')->default(true);
             $table->timestamps();
         });

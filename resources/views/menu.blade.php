@@ -26,28 +26,28 @@
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2 menu-nav"> <img class="menu-nav" src="{{ URL::to('/assets/img/soup.jpeg') }}"></div>
+                        <div class="mb-2 menu-nav"><a href="#soup"><img class="menu-nav" src="{{ URL::to('/assets/img/soup.jpeg') }}"></a></div>
                         <h3 class="h4 mb-2">Zupy</h3>
                         <p class="text-muted mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia maiores voluptate nihil molestiae doloremque similique dolorem accusamus architecto dicta dignissimos odit delectus</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2 menu-nav"><img class="menu-nav" src="{{ URL::to('/assets/img/mainDish.jpeg') }}"></div>
+                        <div class="mb-2 menu-nav"><a href="#main_dish"><img class="menu-nav" src="{{ URL::to('/assets/img/mainDish.jpeg') }}"></a></div>
                         <h3 class="h4 mb-2">Dania główne</h3>
                         <p class="text-muted mb-0">W karcie dań głównych znajdą Państwo: przekąski zimne, przekąski gorące, drób, ryby i mięsiwa. Nasze dania przygotowywane są codziennie ze świeżych produktów najwyższej jakości.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2 menu-nav"><img class="menu-nav" src="{{ URL::to('/assets/img/salad.jpeg') }}"></i></div>
+                        <div class="mb-2 menu-nav"><a href="#salad"><img class="menu-nav" src="{{ URL::to('/assets/img/salad.jpeg') }}"></a></div>
                         <h3 class="h4 mb-2">Sałatki</h3>
                         <p class="text-muted mb-0">Zapoznaj się ze specjalnie przygotowanym menu sałatkowym. Serdecznie zapraszamy.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <div class="mb-2 menu-nav "><img class="menu-nav" src="{{ URL::to('/assets/img/dessert.jpeg') }}"></div>
+                        <div class="mb-2 menu-nav "><a href="#dessert"><img class="menu-nav" src="{{ URL::to('/assets/img/dessert.jpeg') }}"></a></div>
                         <h3 class="h4 mb-2">Desery</h3>
                         <p class="text-muted mb-0">Nasze desery to przede wszystkim wyśmienite puszyste torty biszkoptowe i bezowe, desery ze świeżymi owocami, sernik domowy, jabłecznik jak również przepyszne lody.</p>
                     </div>
@@ -56,24 +56,60 @@
         </div>
     </section>
     <section id="soup">
-    <h1>Zupy</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam quam et obcaecati reiciendis nemo ab, sint vitae, in odio incidunt veritatis ratione blanditiis. Reprehenderit ea ducimus voluptatem nihil laborum consectetur nulla iure illo voluptatum. Iste voluptate quis, quod quo numquam sunt non. Officiis ad modi mollitia soluta fugiat sequi aliquam optio doloribus, autem quis suscipit, accusantium excepturi atque totam. Recusandae omnis alias, ratione autem veritatis maiores? Aliquam consequuntur animi facilis ratione commodi? In eos dolore ipsam dolor eum consectetur excepturi? Facilis, enim deleniti illo fugiat, fugit, libero doloribus architecto in officiis modi corrupti quibusdam aspernatur provident repudiandae ratione asperiores.</p>
+        <div class="menuDetails">
+            <h1>Zupy</h1>
+            <ul>
+            @foreach($soups as $soup)
+             <li>
+                <h4>{{$soup->title}}</h4>
+                <div>{{$soup->price}}</div>
+                <div><p>{{$soup->description}}</p></div>
+             </li>
+            @endforeach
+            </ul>
+        </div>
     </section>
-
     <section id="main_dish">
-    <h1>Dania główne</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam quam et obcaecati reiciendis nemo ab, sint vitae, in odio incidunt veritatis ratione blanditiis. Reprehenderit ea ducimus voluptatem nihil laborum consectetur nulla iure illo voluptatum. Iste voluptate quis, quod quo numquam sunt non. Officiis ad modi mollitia soluta fugiat sequi aliquam optio doloribus, autem quis suscipit, accusantium excepturi atque totam. Recusandae omnis alias, ratione autem veritatis maiores? Aliquam consequuntur animi facilis ratione commodi? In eos dolore ipsam dolor eum consectetur excepturi? Facilis, enim deleniti illo fugiat, fugit, libero doloribus architecto in officiis modi corrupti quibusdam aspernatur provident repudiandae ratione asperiores.</p>
+        <div class="menuDetails">
+            <h1>Dania główne</h1>
+            <ul>
+            @foreach($mainDishes as $dish)
+             <li>
+                <h4>{{$dish->title}}</h4>
+                <div>{{$dish->price}}</div>
+                <div><p>{{$dish->description}}</p></div>
+             </li>
+            @endforeach
+            </ul>
+        </div>
     </section>
-
     <section id="salad">
-    <h1>Sałatki</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam quam et obcaecati reiciendis nemo ab, sint vitae, in odio incidunt veritatis ratione blanditiis. Reprehenderit ea ducimus voluptatem nihil laborum consectetur nulla iure illo voluptatum. Iste voluptate quis, quod quo numquam sunt non. Officiis ad modi mollitia soluta fugiat sequi aliquam optio doloribus, autem quis suscipit, accusantium excepturi atque totam. Recusandae omnis alias, ratione autem veritatis maiores? Aliquam consequuntur animi facilis ratione commodi? In eos dolore ipsam dolor eum consectetur excepturi? Facilis, enim deleniti illo fugiat, fugit, libero doloribus architecto in officiis modi corrupti quibusdam aspernatur provident repudiandae ratione asperiores.</p>
+        <div class="menuDetails">
+            <h1>Sałatki</h1>
+            <ul>
+            @foreach($salads as $salad)
+             <li>
+                <h4>{{$salad->title}}</h4>
+                <div>{{$salad->price}}</div>
+                <div><p>{{$salad->description}}</p></div>
+             </li>
+            @endforeach
+            </ul>
+        </div>
     </section>
-
     <section id="dessert">
-    <h1>Desery</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam quam et obcaecati reiciendis nemo ab, sint vitae, in odio incidunt veritatis ratione blanditiis. Reprehenderit ea ducimus voluptatem nihil laborum consectetur nulla iure illo voluptatum. Iste voluptate quis, quod quo numquam sunt non. Officiis ad modi mollitia soluta fugiat sequi aliquam optio doloribus, autem quis suscipit, accusantium excepturi atque totam. Recusandae omnis alias, ratione autem veritatis maiores? Aliquam consequuntur animi facilis ratione commodi? In eos dolore ipsam dolor eum consectetur excepturi? Facilis, enim deleniti illo fugiat, fugit, libero doloribus architecto in officiis modi corrupti quibusdam aspernatur provident repudiandae ratione asperiores.</p>
-   
+        <div class="menuDetails">
+            <h1>Desery</h1>
+            <ul>
+            @foreach($desserts as $dessert)
+             <li>
+                <h4>{{$dessert->title}}</h4>
+                <div>{{$dessert->price}}</div>
+                <div><p>{{$dessert->description}}</p></div>
+             </li>
+            @endforeach
+            </ul>
+        </div>
     </section>
    <script>
     var img = $("img.menu-nav");

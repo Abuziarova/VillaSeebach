@@ -11050,3 +11050,7 @@ img.menu-nav {
   width: 190px;
 	height: 190px;
 }
+.menuDetails{
+  text-align: center;
+  margin-bottom: 30px;
+}
