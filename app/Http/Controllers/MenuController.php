@@ -16,7 +16,6 @@ class MenuController extends Controller
         return view('menu', get_defined_vars());
     }
     public function addMenu(Request $request){
-       
         $input = [
             'title'   => $request->input('title'),
             'price' => $request->input('price'),

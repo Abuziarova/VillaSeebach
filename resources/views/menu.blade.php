@@ -171,7 +171,8 @@
 	        "height": "190px"
         }, 500);
     });
-    $("#add").click(function(){
+    $(document).off('click.addingbtn');
+    $(document).on('click.addingbtn', '.addingbtn', function(){
         $(".addingbtn").remove();
         $(".adding").append(` <form id="addMenuForm">
                          @csrf
@@ -204,65 +205,71 @@
                         </div>
                         <div class="d-grid"><button class="btn btn-primary btn-xl submitbtn" type="submit" id="add-menu" >Dodaj</button></div>
                     </form>`);
-
-        $('#add-menu').click(function(){
-            let title = $("#title").val();
-            let price = $("#price").val();
-            let description = $("#description").val();
-            let group  = $("#group").val();
-            $.ajax({
-                    type: "POST",
-                    url: 'menu/add',
-                    dataType: "JSON",
-                    data: {
-                        "title": title,
-                        "price": price,
-                        "description": description,
-                        "group": group,
-                        "_token": "{{ csrf_token() }}"
-                    },
-                    success: function(msg) {
-                       $('.invalid-feedback').remove() ;
-                        if(msg['success'] == 'true'){
-                            let divToINsert;
-                            switch(group) {
-                                case 'soup':
-                                divToINsert = $('ul.soup');
-                                break;
-                                case 'mainDish':
-                                    divToINsert = $('ul.mainDish');
-                                    break;
-                                case 'salad':
-                                    divToINsert = $('ul.salad');
-                                    break;
-                                case 'dessert':
-                                    divToINsert = $('ul.dessert');
-                                    break;
-                            };
-                            divToINsert.append(`<li>
-                                <div class="row">
-                                    <div class="col">
-                                        @if(is_null($salad->image))
-                                        <img class="item-img" src="{{ URL::to('/assets/img/${group}.jpeg') }}" alt=${group}>
-                                        @endif
-                                    </div>
-                                    <div class="col-6">
-                                        <h4 class="title">${title}</h4>
-                                        <p>${description}</p>
-                                    </div>
-                                    <div class="col price">${price}</div>
-                                <div>
-                            </li>`)} else {
-                               const validationMessages = Object.values(msg['message']);
-                               for (const [key, value] of Object.entries(msg['message'])) {
-                                $(`#${key}`).after(`<b class="invalid-feedback" style="display:block">${value}</b>`);
-                                }
-                        }
-                    }
-                });
-                event.preventDefault();
-        })
     })
+
+    $(document).off('click.submitbtn');
+    $(document).on('click.submitbtn', '.submitbtn', function(){
+        event.preventDefault();
+        let title = $("#title").val();
+        let price = $("#price").val();
+        let description = $("#description").val();
+        let group  = $("#group").val();
+        $.ajax({
+                type: "POST",
+                url: 'menu/add',
+                dataType: "JSON",
+                data: {
+                    "title": title,
+                    "price": price,
+                    "description": description,
+                    "group": group,
+                    "_token": "{{ csrf_token() }}"
+                },
+                success: function(msg) {
+                    $('.invalid-feedback').remove() ;
+                    if(msg['success'] == 'true'){
+                        let divToINsert;
+                        switch(group) {
+                            case 'soup':
+                            divToINsert = $('ul.soup');
+                            break;
+                            case 'mainDish':
+                                divToINsert = $('ul.mainDish');
+                                break;
+                            case 'salad':
+                                divToINsert = $('ul.salad');
+                                break;
+                            case 'dessert':
+                                divToINsert = $('ul.dessert');
+                                break;
+                        };
+                        divToINsert.append(`<li>
+                            <div class="row">
+                                <div class="col">
+                                    @if(is_null($salad->image))
+                                    <img class="item-img" src="{{ URL::to('/assets/img/${group}.jpeg') }}" alt=${group}>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <h4 class="title">${title}</h4>
+                                    <p>${description}</p>
+                                </div>
+                                <div class="col price">${price}</div>
+                            <div>
+                        </li>`)
+                    $('#addMenuForm').remove(); 
+                    $(".adding").append(' <a id="add" class="btn btn-primary btn-xl addingbtn" >Dodaj</a>')   
+                    } else {
+                            const validationMessages = Object.values(msg['message']);
+                            for (const [key, value] of Object.entries(msg['message'])) {
+                            $(`#${key}`).after(`<b class="invalid-feedback" style="display:block">${value}</b>`);
+                            }
+
+                    }
+                }
+        });
+    })
+ 
    </script>
 @endsection
 

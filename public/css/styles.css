@@ -11032,8 +11032,6 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
-
-
 div.menu-nav {
   display: inline-block;
   width: 180px;
@@ -11051,6 +11049,27 @@ img.menu-nav {
 	height: 190px;
 }
 .menuDetails{
-  text-align: center;
+  text-align: center !important ;
   margin-bottom: 30px;
+}
+img.item-img {
+  border-radius: 50%;
+  width: 150px;
+	height: 150px;
+  margin-bottom: 20px;
+}
+ul {
+  display: inline-block;
+  list-style: none;
+  width: 80%;
+}
+.title {
+  padding-bottom: 20px;
+}
+#addMenuForm {
+  display: inline-block;
+  width: 70%;
+}
+.adding {
+ margin-bottom: 30px;
 }
