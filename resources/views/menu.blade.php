@@ -67,7 +67,9 @@
                  <div class="row">
                     <div class="col">
                         @if(is_null($soup->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/soup.jpeg') }}" alt="zupa">
+                            <img class="item-img" src="{{ URL::to('/assets/img/soup.jpeg') }}" alt="soup">
+                        @else
+                            <img class="item-img" src="{{ asset('storage/'.$soup->image) }}" alt="soup">
                         @endif
                     </div>
                     <div class="col-6">
@@ -90,9 +92,11 @@
              <li>
                  <div class="row">
                     <div class="col">
-                        @if(is_null($dish->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/mainDish.jpeg') }}" alt="danie główne">
-                        @endif
+                    @if(is_null($dish->image))
+                        <img class="item-img" src="{{ URL::to('/assets/img/mainDish.jpeg') }}" alt="mainDish">
+                    @else
+                        <img class="item-img" src="{{ asset('storage/'.$dish->image) }}" alt="mainDish">
+                    @endif
                     </div>
                     <div class="col-6">
                         <h4 class="title">{{$dish->title}}</h4>
@@ -113,9 +117,11 @@
              <li>
                  <div class="row">
                     <div class="col">
-                        @if(is_null($salad->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/salad.jpeg') }}" alt="danie główne">
-                        @endif
+                    @if(is_null($salad->image))
+                        <img class="item-img" src="{{ URL::to('/assets/img/salad.jpeg') }}" alt="salad">
+                    @else
+                        <img class="item-img" src="{{ asset('storage/'.$salad->image) }}" alt="salad">
+                    @endif
                     </div>
                     <div class="col-6">
                         <h4 class="title">{{$salad->title}}</h4>
@@ -128,7 +134,6 @@
             </ul>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
     <section id="dessert">
         <div class="menuDetails">
             <h1 class="title">Desery:</h1>
@@ -138,7 +143,9 @@
                  <div class="row">
                     <div class="col">
                         @if(is_null($dessert->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/dessert.jpeg') }}" alt="danie główne">
+                        <img class="item-img" src="{{ URL::to('/assets/img/dessert.jpeg') }}" alt="deser">
+                        @else
+                        <img class="item-img" src="{{ asset('storage/'.$dessert->image) }}" alt="deser">
                         @endif
                     </div>
                     <div class="col-6">
@@ -198,6 +205,10 @@
                             <textarea class="form-control" id="description" type="text"  style="height: 10rem"></textarea>
                             <label for="description">Opis</label>
                         </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="image" name="image" type="file" />
+                            
+                        </div>
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Danie zostało dodane!</div>
@@ -213,18 +224,27 @@
         let title = $("#title").val();
         let price = $("#price").val();
         let description = $("#description").val();
-        let group  = $("#group").val();
+        let group = $("#group").val();
+        let image = document.querySelector("#image").files[0];
+        let formData = new FormData();
+        formData.append('image', image);
+        formData.append('title', title);
+        formData.append('price', price);
+        formData.append('description', description);
+        formData.append('group', group);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
                 type: "POST",
                 url: 'menu/add',
+                data: formData,
+                cache: false,
                 dataType: "JSON",
-                data: {
-                    "title": title,
-                    "price": price,
-                    "description": description,
-                    "group": group,
-                    "_token": "{{ csrf_token() }}"
-                },
+                processData: false,
+                contentType: false,
                 success: function(msg) {
                     $('.invalid-feedback').remove() ;
                     if(msg['success'] == 'true'){
@@ -246,9 +266,7 @@
                         divToINsert.append(`<li>
                             <div class="row">
                                 <div class="col">
-                                    @if(is_null($salad->image))
                                     <img class="item-img" src="{{ URL::to('/assets/img/${group}.jpeg') }}" alt=${group}>
-                                    @endif
                                 </div>
                                 <div class="col-6">
                                     <h4 class="title">${title}</h4>
@@ -260,11 +278,9 @@
                     $('#addMenuForm').remove(); 
                     $(".adding").append(' <a id="add" class="btn btn-primary btn-xl addingbtn" >Dodaj</a>')   
                     } else {
-                            const validationMessages = Object.values(msg['message']);
                             for (const [key, value] of Object.entries(msg['message'])) {
                             $(`#${key}`).after(`<b class="invalid-feedback" style="display:block">${value}</b>`);
                             }
-
                     }
                 }
         });
