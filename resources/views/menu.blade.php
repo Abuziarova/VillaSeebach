@@ -9,6 +9,7 @@
             </div>
         </div>
     </nav>
+    
     <header class="masthead menu">
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
@@ -65,21 +66,27 @@
             @foreach($soups as $soup)
              <li>
                  <div class="row">
-                    <div class="col">
-                        @if(is_null($soup->image))
-                            <img class="item-img" src="{{ URL::to('/assets/img/soup.jpeg') }}" alt="soup">
-                        @else
+                     <input type="hidden" class="id" value="{{$soup->id}}">
+                    <div class="col-md-2">
+                        @if(!is_null($soup->image))
                             <img class="item-img" src="{{ asset('storage/'.$soup->image) }}" alt="soup">
                         @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h4 class="title">{{$soup->title}}</h4>
                         <p>{{$soup->description}}</p>
                     </div>
-                    <div class="col price">{{$soup->price}}</div>
+                    <div class="col-md-2 price">{{$soup->price}}</div>
+                    <div class="col-md-2">
+                        <a class="edit" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                    </div>
                 <div>
              </li>
-             
             @endforeach
             </ul>
         </div>
@@ -91,18 +98,25 @@
             @foreach($mainDishes as $dish)
              <li>
                  <div class="row">
-                    <div class="col">
-                    @if(is_null($dish->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/mainDish.jpeg') }}" alt="mainDish">
-                    @else
+                    <input type="hidden" class="id" value="{{$dish->id}}">
+                    <div class="col-md-2">
+                    @if(!is_null($dish->image))
                         <img class="item-img" src="{{ asset('storage/'.$dish->image) }}" alt="mainDish">
                     @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h4 class="title">{{$dish->title}}</h4>
                         <p>{{$dish->description}}</p>
                     </div>
-                    <div class="col price">{{$dish->price}}</div>
+                    <div class="col-md-2 price">{{$dish->price}}</div>
+                    <div class="col-md-2">
+                        <a class="edit" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                    </div>
                 <div>
              </li>
             @endforeach
@@ -116,18 +130,25 @@
             @foreach($salads as $salad)
              <li>
                  <div class="row">
-                    <div class="col">
-                    @if(is_null($salad->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/salad.jpeg') }}" alt="salad">
-                    @else
+                    <input type="hidden" class="id" value="{{$salad->id}}">
+                    <div class="col-md-2">
+                    @if(!is_null($salad->image))
                         <img class="item-img" src="{{ asset('storage/'.$salad->image) }}" alt="salad">
                     @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h4 class="title">{{$salad->title}}</h4>
                         <p>{{$salad->description}}</p>
                     </div>
-                    <div class="col price">{{$salad->price}}</div>
+                    <div class="col-md-2 price">{{$salad->price}}</div>
+                    <div class="col-md-2">
+                        <a class="edit" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                    </div>
                 <div>
              </li>
             @endforeach
@@ -141,18 +162,25 @@
             @foreach($desserts as $dessert)
              <li>
                  <div class="row">
-                    <div class="col">
-                        @if(is_null($dessert->image))
-                        <img class="item-img" src="{{ URL::to('/assets/img/dessert.jpeg') }}" alt="deser">
-                        @else
+                    <input type="hidden" class="id" value="{{$dessert->id}}">
+                    <div class="col-md-2">
+                        @if(!is_null($dessert->image))
                         <img class="item-img" src="{{ asset('storage/'.$dessert->image) }}" alt="deser">
                         @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h4 class="title">{{$dessert->title}}</h4>
                         <p>{{$dessert->description}}</p>
                     </div>
-                    <div class="col price">{{$dessert->price}}</div>
+                    <div class="col-md-2 price">{{$dessert->price}}</div>
+                    <div class="col-md-2">
+                        <a class="edit" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                    </div>
                 <div>
              </li>
             @endforeach
@@ -164,6 +192,7 @@
             <a id="add" class="btn btn-primary btn-xl addingbtn" >Dodaj</a>
         </div>
     </div>
+
    <script>
     var img = $("img.menu-nav");
     img.mouseover(function(){
@@ -193,7 +222,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <select class="form-control" name="group" id="group">
-                                <option value="">Wybierz...</option>
+                                <option value="" >Wybierz...</option>
                                 <option value="soup">Zupa</option>
                                 <option value="mainDish">Danie główne</option>
                                 <option value="salad">Sałatka</option>
@@ -285,7 +314,68 @@
                 }
         });
     })
- 
+
+    $(document).off('click.edit');
+    $(document).on('click.edit', ".edit", function(){
+        event.preventDefault();
+        if($("form#editForm").val() == undefined){
+        const row = $(event.target).parents('.row');
+        const id = row.find("input.id").val();
+        const title = row.find("h4.title")[0].innerHTML;
+        const description = row.find("p")[0].innerHTML;
+        const price = row.find("div.price")[0].innerHTML;
+        console.log(price);
+        var group = row.parents('ul').attr('class');
+        row.replaceWith(`<form id="editForm" method="POST" action="{{ route('menu.update') }}">
+            <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+            <input name="id" type="hidden" value="${id}">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="editMenu">
+                        <label for="img">plik.jpg</label>
+                    </div>
+                    <div class="editMenu">
+                        <input class="form-control" id="img" name="img" type="file" />
+                    </div>
+                </div> 
+                <div class="col-md-6">
+                    <div class="editMenu">
+                        <input class="form-control" id="title" name="title" type="text" value="${title}" />
+                    </div>
+                    <div class="editMenu">
+                        <textarea class="form-control" name="description"  style=" height: 100px;">${description}</textarea>
+                    </div>
+                </div> 
+                <div class="col-md-2">
+                <div class="editMenu">
+                    <input type="number" name="price" class="form-control" min="0" step="0.1" value="${price}">
+                </div> 
+                <div class="editMenu">
+                    <select class="form-control" name="group" id="">
+                                <option value="soup" >Zupa</option>
+                                <option value="mainDish">Danie główne</option>
+                                <option value="salad" >Sałatka</option>
+                                <option value="dessert">Desert</option>
+                    </select>
+                </div> 
+                <div class="editMenu">
+                    <div class="d-grid">
+                        <button class="btn btn-primary" type="submit" " >Zapisz</button>
+                    </div> 
+                </div>
+                </div>
+            </div>
+        </form>`);
+        $("div.editMenu select").val(group);
+        }else{
+            if($("b.errorSendForm").val() == undefined){
+                $("form#editForm").after(`<b class="errorSendForm" style="color:red">Zatwierdź zmiany</b>`);
+            }
+            location.href = "#editForm";
+        }
+    })
    </script>
+  
+     
 @endsection
 

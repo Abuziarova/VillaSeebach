@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@renderHomePage');
-Route::get('/menu', 'App\Http\Controllers\MenuController@renderMenuPage');
-Route::post('/menu/add', 'App\Http\Controllers\MenuController@addMenu');
+Route::prefix('menu')->group(function (){
+    Route::get('/', 'App\Http\Controllers\MenuController@renderMenuPage');
+    Route::post('/add', 'App\Http\Controllers\MenuController@addMenu');
+    Route::post('/update', 'App\Http\Controllers\MenuController@updateMenu')->name('menu.update');
+    
+});

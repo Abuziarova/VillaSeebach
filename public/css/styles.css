@@ -7356,6 +7356,9 @@ textarea.form-control-lg {
 .text-primary {
   color: #80e5ff !important;
 }
+.text-primary:hover {
+  color: #f4623a !important;
+}
 
 .text-secondary {
   color: #6c757d !important;
@@ -11009,8 +11012,8 @@ header.masthead h1, header.masthead .h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  width: 100% ;
+  height: 100% ;
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -11072,4 +11075,14 @@ ul {
 }
 .adding {
  margin-bottom: 30px;
+}
+.edit{
+  color: #80e5ff;
+}
+a.portfolio-box{
+  width: 100%;
+  height: 100%;
+}
+.editMenu{
+  margin: 5px 0px 10px 25px;
 }

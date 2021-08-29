@@ -10,7 +10,8 @@ use File;
 
 class MenuController extends Controller
 {
-    public function renderMenuPage(){
+    public function renderMenuPage()
+    {
         $soups = Menu::where('group', 'soup')->get();
         $mainDishes = Menu::where('group', 'mainDish')->get();
         $salads = Menu::where('group', 'salad')->get();
@@ -18,7 +19,8 @@ class MenuController extends Controller
         return view('menu', get_defined_vars());
     }
 
-    public function addMenu(Request $request){
+    public function addMenu(Request $request)
+    {
         $input = [
             'title'   => $request->input('title'),
             'price' => $request->input('price'),
@@ -61,5 +63,17 @@ class MenuController extends Controller
             return response()->json(['success' => 'true', 'message' => 'Wpis został dodany']);
         }
        
+    }
+
+    public function updateMenu(Request $request)
+    {
+        $UpdateItem = Menu::find($request->input('id'));
+        $UpdateItem->title = $request->input('title');
+        $UpdateItem->price = $request->input('price');
+        $UpdateItem->description = $request->input('description');
+        $UpdateItem->group = $request->input('group');
+        $UpdateItem->save();
+
+        return redirect('/menu');
     }
 }
