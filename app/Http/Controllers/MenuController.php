@@ -12,10 +12,10 @@ class MenuController extends Controller
 {
     public function renderMenuPage()
     {
-        $soups = Menu::where('group', 'soup')->get();
-        $mainDishes = Menu::where('group', 'mainDish')->get();
-        $salads = Menu::where('group', 'salad')->get();
-        $desserts = Menu::where('group', 'dessert')->get();
+        $soups = Menu::where('group', 'soup')->where('isActive', '1')->get();
+        $mainDishes = Menu::where('group', 'mainDish')->where('isActive', '1')->get();
+        $salads = Menu::where('group', 'salad')->where('isActive', '1')->get();
+        $desserts = Menu::where('group', 'dessert')->where('isActive', '1')->get();
         return view('menu', get_defined_vars());
     }
 

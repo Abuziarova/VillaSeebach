@@ -11056,10 +11056,19 @@ img.menu-nav {
   margin-bottom: 30px;
 }
 img.item-img {
-  border-radius: 50%;
-  width: 150px;
-	height: 150px;
-  margin-bottom: 20px;
+  width: 100%;
+}
+div.item-img {
+  display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 150px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 150px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  overflow: hidden !important;
 }
 ul {
   display: inline-block;
@@ -11094,4 +11103,11 @@ input[type="file"] {
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+}
+.itemContent{
+  text-align: left;
+  padding-left: 5%;
+}
+.item{
+  padding-top: 5%;
 }
