@@ -66,12 +66,16 @@ class MenuController extends Controller
     }
 
     public function updateMenu(Request $request)
-    {
+    {   
         $UpdateItem = Menu::find($request->input('id'));
         $UpdateItem->title = $request->input('title');
         $UpdateItem->price = $request->input('price');
         $UpdateItem->description = $request->input('description');
         $UpdateItem->group = $request->input('group');
+        if(!is_null($request->file('file'))){
+            $name = strtolower(str_replace(' ', '_', $request->input('title')));
+            $UpdateItem->image =  $request->file('file')->storeAs('menu_images', $name. '.' .  $request->file('file')->extension(), 'public' );
+        };
         $UpdateItem->save();
 
         return redirect('/menu');

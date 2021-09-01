@@ -5,7 +5,6 @@
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="/" >Villa Seebach</a>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                
             </div>
         </div>
     </nav>
@@ -324,18 +323,30 @@
         const title = row.find("h4.title")[0].innerHTML;
         const description = row.find("p")[0].innerHTML;
         const price = row.find("div.price")[0].innerHTML;
-        console.log(price);
+        let img = row.find('img.item-img')[0];
+        if(typeof img === "undefined"){
+            img = "Nie wybrano zdjęcia";
+        }else{
+            img = $(img).attr('src').split('/');
+            img = img[img.length-1];
+        }
         var group = row.parents('ul').attr('class');
-        row.replaceWith(`<form id="editForm" method="POST" action="{{ route('menu.update') }}">
+        row.replaceWith(`<form id="editForm" method="POST" action="{{ route('menu.update') }}" enctype="multipart/form-data">
             <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
             <input name="id" type="hidden" value="${id}">
             <div class="row">
                 <div class="col-md-2">
                     <div class="editMenu">
-                        <label for="img">plik.jpg</label>
+                        <label class="custom-file-upload form-control">
+                        <input type="file" id="menuFileUpload" name="file"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                        </svg><span> Dodaj</span>
+                        </label>
                     </div>
-                    <div class="editMenu">
-                        <input class="form-control" id="img" name="img" type="file" />
+                    <div class="editMenu fileName">
+                    ${img}
                     </div>
                 </div> 
                 <div class="col-md-6">
@@ -366,16 +377,26 @@
                 </div>
             </div>
         </form>`);
+
+        $('#menuFileUpload').on('change', function(e){
+        const div = $(".fileName");
+        div.html(e.target.files[0].name);
+        })
+
         $("div.editMenu select").val(group);
-        }else{
+        } else {
             if($("b.errorSendForm").val() == undefined){
                 $("form#editForm").after(`<b class="errorSendForm" style="color:red">Zatwierdź zmiany</b>`);
             }
             location.href = "#editForm";
         }
     })
+
+    
+
+
    </script>
-  
+
      
 @endsection
 
