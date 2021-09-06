@@ -18,5 +18,6 @@ Route::prefix('menu')->group(function (){
     Route::get('/', 'App\Http\Controllers\MenuController@renderMenuPage');
     Route::post('/add', 'App\Http\Controllers\MenuController@addMenu');
     Route::post('/update', 'App\Http\Controllers\MenuController@updateMenu')->name('menu.update');
+    Route::post('/remove', 'App\Http\Controllers\MenuController@removeItem');
     
 });

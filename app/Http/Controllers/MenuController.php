@@ -16,6 +16,7 @@ class MenuController extends Controller
         $mainDishes = Menu::where('group', 'mainDish')->where('isActive', '1')->get();
         $salads = Menu::where('group', 'salad')->where('isActive', '1')->get();
         $desserts = Menu::where('group', 'dessert')->where('isActive', '1')->get();
+        $unactive = Menu::where('isActive', '0')->orderBy('group', 'DESC')->get();
         return view('menu', get_defined_vars());
     }
 
@@ -79,5 +80,16 @@ class MenuController extends Controller
         $UpdateItem->save();
 
         return redirect('/menu');
+    }
+
+    public function removeItem (Request $request)
+    {
+        $deletedItem = Menu::find($request->input('id_item'));
+        $deletedItem->isActive = !$deletedItem->isActive;
+        $deletedItem->save();
+
+        return response()->json(['success' => 'true', 'message' => 'Deleted', 'deletedItem' =>  $deletedItem]);
+        
+
     }
 }

@@ -11085,7 +11085,7 @@ ul {
 .adding {
  margin-bottom: 30px;
 }
-.edit{
+.edit, .restore{
   color: #80e5ff;
 }
 a.portfolio-box{

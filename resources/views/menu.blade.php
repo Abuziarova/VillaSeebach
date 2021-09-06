@@ -8,7 +8,7 @@
             </div>
         </div>
     </nav>
-    
+ 
     <header class="masthead menu">
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
@@ -20,6 +20,7 @@
         </div>
     </header>
     <section class="page-section">
+    
         <div class="container px-4 px-lg-5">
         <div class=" align-self-baseline text-center">
             <h2 class="text-center mt-0">Karta menu</h2>
@@ -80,7 +81,7 @@
                     <div class="col-md-2 price">{{$soup->price}}</div>
                     <div class="col-md-2">
                         <div class="col-md-12">
-                            <a class="edit" href="#">
+                            <a class="edit"  href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -88,7 +89,8 @@
                             </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="remove" href="#">
+                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                            <a class="remove" data-id="{{$soup->id}}" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -132,7 +134,7 @@
                             </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="remove" href="#">
+                            <a class="remove" data-id="{{$dish->id}}" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -176,7 +178,7 @@
                             </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="remove" href="#">
+                            <a class="remove" data-id="{{$salad->id}}" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -220,7 +222,7 @@
                             </a>
                         </div>
                         <div class="col-md-12">
-                            <a class="remove" href="#">
+                            <a class="remove" data-id="{{$dessert->id}}" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -234,6 +236,44 @@
             </ul>
         </div>
     </section>
+
+    <div class="menuDetails">
+            <h1 class="title">Nieaktywne:</h1>
+            <ul class="removed">
+            @foreach($unactive as $item)
+             <li class="">
+                 <div class="row item">
+                    <input type="hidden" class="id" value="{{$item->id}}">
+                    <div class="col-md-2">
+                    @if(!is_null($item->image))
+                    <div class="item-img">
+                        <img class="item-img" src="{{ asset('storage/'.$item->image) }}" >
+                    </div>
+                    @endif
+                    </div>
+                    <div class="col-md-6 itemContent">
+                        <h4 class="title">{{$item->title}}</h4>
+                        <p>{{$item->description}}</p>
+                    </div>
+                    <div class="col-md-2 price">{{$item->price}}
+                        <div>{{$item->group}}</div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <a class="restore" data-id="{{$item->id}}" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                            </svg>
+                            </a>
+                        </div>
+                    </div>
+                <div>
+             </li>
+            @endforeach
+            </ul>
+        </div>
     <div class="row text-center">
         <div class="col-md-12 adding">
             <a id="add" class="btn btn-primary btn-xl addingbtn" >Dodaj</a>
@@ -241,6 +281,12 @@
     </div>
 
    <script>
+    $("body").bind("ajaxSend", function(elm, xhr, s){
+    if (s.type == "POST") {
+        xhr.setRequestHeader('X-CSRF-Token', getCSRFTokenValue());
+    }
+    });
+
     var img = $("img.menu-nav");
     img.mouseover(function(){
         $(this).stop().animate({
@@ -438,10 +484,151 @@
             }
             location.href = "#editForm";
         }
+    });
+    $(document).off('click.remove');
+    $(document).on('click.remove', '.remove', function(e){
+        e.preventDefault();
+        var id_item = $(e.currentTarget).attr('data-id');
+        const parent = $(e.currentTarget).parents('.item');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+                type: "POST",
+                url: 'menu/remove',
+                data: {
+                        id_item: id_item
+                    },
+                success: function(msg){
+                    if(msg['success']){
+                        const id =  msg['deletedItem']['id'];
+                        const title = msg['deletedItem']['title'];
+                        const description =  msg['deletedItem']['description'];
+                        const price =  msg['deletedItem']['price'];
+                        const group =  msg['deletedItem']['group'];
+                        const image =  msg['deletedItem']['image'];
+                        divImage = '';
+                        if(image) {
+                            divImage = `<div class="item-img">
+                            <img class="item-img" src="storage/${image}" >
+                        </div>`
+                        };
+                        $(".removed").append(`<li class="">
+                 <div class="row item">
+                    <input type="hidden" class="id" value="">
+                    <div class="col-md-2">`+ divImage+`
+                    </div>
+                    <div class="col-md-6 itemContent">
+                        <h4 class="title">${title}</h4>
+                        <p>${description}</p>
+                    </div>
+                    <div class="col-md-2 price">${price}
+                        <div>${group}</div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <a class="restore" data-id="${id}" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                            </svg>
+                            </a>
+                        </div>
+                    </div>
+                <div>
+             </li>`);
+                        parent.remove();
+                    };
+                }
+        });
+    });
+    $(document).off('click.restore');
+    $(document).on('click.restore', '.restore', function(e){
+        e.preventDefault();
+        var id_item = $(e.currentTarget).attr('data-id');
+        const parent = $(e.currentTarget).parents('.item');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+                type: "POST",
+                url: 'menu/remove',
+                data: {
+                        id_item: id_item
+                    },
+                success: function(msg){
+                    if(msg['success']){
+                        const id = msg['deletedItem']['id'];
+                        const title = msg['deletedItem']['title'];
+                        const description =  msg['deletedItem']['description'];
+                        const price =  msg['deletedItem']['price'];
+                        const group =  msg['deletedItem']['group'];
+                        const image =  msg['deletedItem']['image'];
+                        let divToInsert
+                       switch(group) {
+                            case 'soup':
+                            divToInsert = $('ul.soup');
+                            break;
+                            case 'mainDish':
+                                divToInsert = $('ul.mainDish');
+                                break;
+                            case 'salad':
+                                divToInsert = $('ul.salad');
+                                break;
+                            case 'dessert':
+                                divToInsert = $('ul.dessert');
+                                break;
+                        };
+                    divImage = '';
+                    if(image) {
+                        divImage = `<div class="item-img">
+                        <img class="item-img" src="storage/${image}" >
+                    </div>`
+                    };
+                    divToInsert.append(`   <li>
+                        <div class="row item">
+                            <input type="hidden" class="id" value="${id}">
+                        <div class="col-md-2">`+ divImage+`
+                        </div>
+                        <div class="col-md-6 itemContent">
+                            <h4 class="title">${title}</h4>
+                            <p>${description}</p>
+                        </div>
+                        <div class="col-md-2 price">${price}</div>
+                        <div class="col-md-2">
+                            <div class="col-md-12">
+                                <a class="edit" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="col-md-12">
+                                <a class="remove" data-id="${id}" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                    </li>`);
+                        parent.remove();
+                    };
+                }
+        });
     })
-
-    
-
 
    </script>
 
