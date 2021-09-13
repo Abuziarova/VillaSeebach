@@ -21,6 +21,24 @@
     </head>
     <body id="page-top">
     <script src="js/jquery.js"></script>
+    <div id="myModal" class="modal-login">
+    <!-- Modal content -->
+        <div class="modal-content-login">
+            
+            <form>
+                <div class="form-floating mb-3">
+                    <input class="form-control login" type="text" id="login"/>
+                    <label for="login">Login</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control login" type="password" id="password"/>
+                    <label for="password">Password</label>
+                </div>
+                <div class="d-grid"><button class="btn btn-primary btn-sm sendLoginForm" type="submit">Zaloguj</button>
+                </div>
+            </form>
+        </div>
+    </div>
         @yield('content')
             
     <script src="js/scripts.js"></script>
@@ -28,11 +46,76 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+
+        <script>
+            $("body").bind("ajaxSend", function(elm, xhr, s){
+            if (s.type == "POST") {
+                xhr.setRequestHeader('X-CSRF-Token', getCSRFTokenValue());
+            }
+            });
+
+            var modal = $('.modal-login');
+
+            $(document).on('click.loginBtn','.loginBtn', function(){
+            modal.css('display', 'block');
+            });
+
+            $(document).on('click.close-login', '.close-login', function(){
+                modal.css('display', 'none');
+            });
+
+            $(document).on('click', function(event){
+               if(event.target == modal[0]){
+                modal.css('display', 'none');
+               };
+            }); 
+
+            $(document).on('input.login', function(){
+               if (event.target.value != 0) {
+                $(event.target).next().css('display', 'none');
+               } else {
+                $(event.target).next().css('display', 'block');
+               };
+            });
+
+            $(document).on('click.sendLoginForm', '.sendLoginForm', function(e){
+                e.preventDefault();
+                const login = $('#login').val();
+                const password = $('#password').val();
+                let formData = new FormData();
+                formData.append('login', login);
+                formData.append('password', password);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "POST",
+                    url: 'login',
+                    data: formData,
+                    cache: false,
+                    dataType: "JSON",
+                    processData: false,
+                    contentType: false,
+                    success: function(msg) {
+                        if(msg['success'] == 'true'){
+                            console.log('zalogowano');
+                            location.reload()
+                        } else {
+                            const error = msg['message'];
+                            $(e.target).parent('div').append(`<div style="color:red">${error}</div>`);
+                        };
+                    }
+                });
+            });
+        </script>
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5">
                 <div class="small text-center text-muted">Copyright &copy; 2021 - Julia Abuziarova</div>
             </div>
         </footer>
+       
     </body>
 </html>

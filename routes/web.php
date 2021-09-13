@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@renderHomePage');
+Route::post('/login', 'App\Http\Controllers\HomeController@login');
+Route::get('/logout', 'App\Http\Controllers\HomeController@logout');
+
 Route::prefix('menu')->group(function (){
     Route::get('/', 'App\Http\Controllers\MenuController@renderMenuPage');
     Route::post('/add', 'App\Http\Controllers\MenuController@addMenu');

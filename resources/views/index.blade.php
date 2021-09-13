@@ -15,6 +15,15 @@
                 </ul>
             </div>
         </div>
+        @if(!Auth::guest())
+        <div>
+        <a class="nav-link " href="/logout" >Logout</a>
+        </div>
+        @else
+        <div>
+        <a class="nav-link loginBtn" href="#" >Login</a>
+        </div>
+        @endif
     </nav>
         <!-- Masthead-->
     <header class="masthead">

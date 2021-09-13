@@ -11,7 +11,7 @@ use File;
 class MenuController extends Controller
 {
     public function renderMenuPage()
-    {
+    {  
         $soups = Menu::where('group', 'soup')->where('isActive', '1')->get();
         $mainDishes = Menu::where('group', 'mainDish')->where('isActive', '1')->get();
         $salads = Menu::where('group', 'salad')->where('isActive', '1')->get();
@@ -60,8 +60,9 @@ class MenuController extends Controller
                 $itemMenu->image =  $request->file('image')->storeAs('menu_images', $name. '.' .  $request->file('image')->extension(), 'public' );
             };
             $itemMenu->save();
-    
-            return response()->json(['success' => 'true', 'message' => 'Wpis został dodany']);
+            $newItem = Menu::where('title', $input['title'])->first();
+            $id = $newItem->id;
+            return response()->json(['success' => 'true', 'message' => 'Wpis został dodany', 'id' => $id]);
         }
        
     }

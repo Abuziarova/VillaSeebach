@@ -4,8 +4,16 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="/" >Villa Seebach</a>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-            </div>
+            
+        @if(!Auth::guest())
+        <div>
+        <a class="nav-link" href="/logout">Logout</a>
+        </div>
+        @else
+        <div>
+        <a class="nav-link loginBtn" href="#">Login</a>
+        </div>
+        @endif
         </div>
     </nav>
  
@@ -25,7 +33,9 @@
         <div class=" align-self-baseline text-center">
             <h2 class="text-center mt-0">Karta menu</h2>
             <hr class="divider" />
+            @if (!Auth::guest())
             <a class="btn btn-primary btn-xl " href="#add">Dodaj</a>
+            @endif
         </div>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-3 col-md-6 text-center">
@@ -79,6 +89,7 @@
                         <p>{{$soup->description}}</p>
                     </div>
                     <div class="col-md-2 price">{{$soup->price}}</div>
+                    @if (!Auth::guest())
                     <div class="col-md-2">
                         <div class="col-md-12">
                             <a class="edit"  href="#">
@@ -98,6 +109,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 <div>
              </li>
             @endforeach
@@ -124,6 +136,7 @@
                         <p>{{$dish->description}}</p>
                     </div>
                     <div class="col-md-2 price">{{$dish->price}}</div>
+                    @if (!Auth::guest())
                     <div class="col-md-2">
                         <div class="col-md-12">
                             <a class="edit" href="#">
@@ -142,6 +155,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 <div>
              </li>
             @endforeach
@@ -168,6 +182,7 @@
                         <p>{{$salad->description}}</p>
                     </div>
                     <div class="col-md-2 price">{{$salad->price}}</div>
+                    @if (!Auth::guest())
                     <div class="col-md-2">
                         <div class="col-md-12">
                             <a class="edit" href="#">
@@ -186,6 +201,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 <div>
              </li>
             @endforeach
@@ -212,6 +228,7 @@
                         <p>{{$dessert->description}}</p>
                     </div>
                     <div class="col-md-2 price">{{$dessert->price}}</div>
+                    @if (!Auth::guest())
                     <div class="col-md-2">
                         <div class="col-md-12">
                             <a class="edit" href="#">
@@ -230,13 +247,14 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 <div>
              </li>
             @endforeach
             </ul>
         </div>
     </section>
-
+ @if (!Auth::guest())
     <div class="menuDetails">
             <h1 class="title">Nieaktywne:</h1>
             <ul class="removed">
@@ -279,13 +297,8 @@
             <a id="add" class="btn btn-primary btn-xl addingbtn" >Dodaj</a>
         </div>
     </div>
-
+@endif
    <script>
-    $("body").bind("ajaxSend", function(elm, xhr, s){
-    if (s.type == "POST") {
-        xhr.setRequestHeader('X-CSRF-Token', getCSRFTokenValue());
-    }
-    });
 
     var img = $("img.menu-nav");
     img.mouseover(function(){
@@ -329,7 +342,6 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" id="image" name="image" type="file" />
-                            
                         </div>
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
@@ -368,6 +380,7 @@
                 processData: false,
                 contentType: false,
                 success: function(msg) {
+                    const id = msg['id'];
                     $('.invalid-feedback').remove() ;
                     if(msg['success'] == 'true'){
                         let divToINsert;
@@ -385,18 +398,36 @@
                                 divToINsert = $('ul.dessert');
                                 break;
                         };
-                        divToINsert.append(`<li>
-                            <div class="row">
-                                <div class="col">
-                                    <img class="item-img" src="{{ URL::to('/assets/img/${group}.jpeg') }}" alt=${group}>
-                                </div>
-                                <div class="col-6">
-                                    <h4 class="title">${title}</h4>
-                                    <p>${description}</p>
-                                </div>
-                                <div class="col price">${price}</div>
-                            <div>
-                        </li>`)
+                        divToINsert.append( `<div class="row item">
+                    <input type="hidden" class="id" value="${id}">
+                    <div class="col-md-2">
+                        
+                    </div>
+                    <div class="col-md-6 itemContent">
+                        <h4 class="title">${title}</h4>
+                        <p>${description}</p>
+                    </div>
+                    <div class="col-md-2 price">${price}</div>
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <a class="edit"  href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="col-md-12">
+                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                            <a class="remove" data-id="{{$soup->id}}" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                <div>`)
                     $('#addMenuForm').remove(); 
                     $(".adding").append(' <a id="add" class="btn btn-primary btn-xl addingbtn" >Dodaj</a>')   
                     } else {
