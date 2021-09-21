@@ -660,9 +660,7 @@
                 }
         });
     })
-
    </script>
 
-     
 @endsection
 

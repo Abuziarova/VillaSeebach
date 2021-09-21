@@ -3949,6 +3949,7 @@ textarea.form-control-lg {
 }
 .tab-content > .active {
   display: block;
+  margin: 20px;
 }
 
 .navbar {
@@ -10977,6 +10978,17 @@ header.masthead.menu{
   background-attachment: scroll;
   background-size: cover;
 }
+
+header.masthead.orders{
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/order-food.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
 header.masthead h1, header.masthead .h1 {
   font-size: 2.25rem;
 }
@@ -11141,3 +11153,64 @@ input.login {
 .btn-sm {
   border: none;
 }
+
+.orders-tabs {
+  width: 80%;
+}
+
+.card {
+  word-wrap: break-word;
+    background-clip: border-box;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+    margin: 20px;
+}
+
+#myTab {
+  width: 100%;
+}
+
+ div.payment {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  height: 30px;
+  width: 140px;
+  text-align: left;
+  padding-left: 15px; 
+  padding-top: 3px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+ }
+
+ ul.nav {
+width:100%;
+ }
+ .count_button {
+  background-color: #80e5ff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  height: 23px;
+  width: 23px;
+  text-align: center;
+  font-size:12px;
+  font-weight: bold;
+ }
+ .count_button:hover {
+  background-color:  white;
+  color:  #80e5ff;
+  border: 2px solid #80e5ff;
+ }
+
+ .count {
+  color: #80e5ff;  
+  border: none; 
+  background-color:white;
+  text-align: center;
+  outline: none;
+ }

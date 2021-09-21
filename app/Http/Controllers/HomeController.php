@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
    public function renderHomePage()
    {
+  
       return view('index');
    }
 
@@ -34,6 +35,16 @@ class HomeController extends Controller
    {
       Auth::logout();
       return back();
+   }
+
+   public function addUser()
+   {
+   //   $admin = new User;
+   //    $admin->name = 'admin';
+   //    $admin->email = 'admin';
+   //    $admin->password = password_hash('admin', PASSWORD_DEFAULT);
+   //    $admin->save();
+   // dd(User::get());
    }
 
 }

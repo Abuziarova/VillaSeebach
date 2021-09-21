@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                    <div class="mb-2"> <a class="nav-servise" href="#"><i class="bi bi-truck fs-1 text-primary"></i></a></div>
+                    <div class="mb-2"> <a class="nav-servise" href="/orders/create"><i class="bi bi-truck fs-1 text-primary"></i></a></div>
                         <h3 class="h4 mb-2">Zamówienia</h3>
                         <p class="text-muted mb-0">Złóż zamówienie online z dostawą lub odbiorem osobistym</p>
                     </div>
