@@ -92,7 +92,7 @@
                 });
                 $.ajax({
                     type: "POST",
-                    url: 'login',
+                    url: '/login',
                     data: formData,
                     cache: false,
                     dataType: "JSON",

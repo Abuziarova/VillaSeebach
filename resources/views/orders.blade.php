@@ -16,6 +16,14 @@
 </nav>
 
 <header class="masthead orders">
+<div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Zamówienia</h1>
+                    <hr class="divider" />
+                </div>
+            </div>
+        </div>
 </header>
 <div class="container">
     <div class="row align-items-center">
@@ -23,14 +31,14 @@
             <div class="card">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li  role="presentation">
-                        <div class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#rezerwation"  role="tab" aria-controls="rezerwation" aria-selected="true">Rezerwacja stolika</div>
+                        <div class="nav-link" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking"  role="tab" aria-controls="booking" aria-selected="true">Rezerwacja stolika</div>
                     </li>
                     <li role="presentation">
                         <div class="nav-link active" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" role="tab" aria-controls="profile" aria-selected="false">Odbiór osobisty</div>
                     </li>
                 </ul>
                 <div class="tab-content "  id="myTabContent">
-                    <div class="tab-pane fade  " id="rezerwation" role="tabpanel" aria-labelledby="rezerwation-tab">Opcje rezerwacji Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iste autem ratione omnis optio at necessitatibus aliquid maiores. Maiores quasi impedit autem quae possimus, sint eligendi perferendis eum cupiditate dolore voluptatibus eius consequatur soluta velit magni voluptas quisquam. Corporis repudiandae odit at beatae ipsum nihil repellat est eius. Quibusdam, quisquam!</div>
+                    <div class="tab-pane fade  " id="booking" role="tabpanel" aria-labelledby="booking-tab">Opcje rezerwacji Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iste autem ratione omnis optio at necessitatibus aliquid maiores. Maiores quasi impedit autem quae possimus, sint eligendi perferendis eum cupiditate dolore voluptatibus eius consequatur soluta velit magni voluptas quisquam. Corporis repudiandae odit at beatae ipsum nihil repellat est eius. Quibusdam, quisquam!</div>
 
                     <div class="tab-pane fade active show" id="order" role="tabpanel" aria-labelledby="order-tab">
                       <form id="order-form" action="{{ route('order.save') }}"  method="POST" enctype="multipart/form-data">  
@@ -63,7 +71,7 @@
                         </div>
                         <div style="margin: 15px">
                         <img class="" style="width:30px" src="{{ URL::to('/assets/img/shopping-cart.png') }}" >
-                        <span>Do zapłaty: <span class="total" style="color:#80e5ff; font-size: 25px"> 0 </span> zł</span> 
+                        <span>Do zapłaty: <span class="total"> 0 </span> zł</span> 
                         </div>
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -160,6 +168,19 @@
 </div>
 
 <script>
+
+    $('[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $('h1').text() == 'Zamówienia' ? $('h1').text('Rezerwacja stolika') : $('h1').text('Zamówienia');
+    });
+
+    var booking = '{{ $booking }}';
+    if(booking == 'booking') {
+        $('.nav-link').removeClass('active');
+        $('#order').removeClass('active show');
+        $('#booking-tab').addClass('active');
+        $('#booking').addClass('active show');
+        $('h1').text('Rezerwacja stolika');
+    };
 
    $( '.count_button').click( function(){
        $total = parseFloat($('.total').text());

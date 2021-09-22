@@ -11123,7 +11123,6 @@ input[type="file"] {
 .item{
   padding-top: 5%;
 }
-
 .modal-login {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -11136,8 +11135,6 @@ input[type="file"] {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
-/* Modal Content/Box */
 .modal-content-login {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
@@ -11146,18 +11143,15 @@ input[type="file"] {
   max-width: 300px; /* Could be more or less, depending on screen size */
   border-radius: 5px;
 }
- 
 input.login {
   height: 10px !important;
 }
 .btn-sm {
   border: none;
 }
-
 .orders-tabs {
   width: 80%;
 }
-
 .card {
   word-wrap: break-word;
     background-clip: border-box;
@@ -11170,11 +11164,9 @@ input.login {
     position: relative;
     margin: 20px;
 }
-
 #myTab {
   width: 100%;
 }
-
  div.payment {
   border: 1px solid #ccc!important;
   border-radius: 16px;
@@ -11186,7 +11178,6 @@ input.login {
   margin-bottom: 10px;
   margin-top: 10px;
  }
-
  ul.nav {
 width:100%;
  }
@@ -11206,11 +11197,23 @@ width:100%;
   color:  #80e5ff;
   border: 2px solid #80e5ff;
  }
-
  .count {
   color: #80e5ff;  
   border: none; 
   background-color:white;
   text-align: center;
   outline: none;
+ }
+ .total {
+  color:#80e5ff; 
+  font-size: 25px;
+ }
+ .groups {
+  max-width: 1000px;
+ }
+ .bankgroups {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
  }
