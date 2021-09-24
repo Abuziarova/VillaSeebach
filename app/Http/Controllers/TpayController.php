@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\Models\Order;
+use  App\Models\Booking;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
@@ -50,11 +51,20 @@ class TpayController extends Controller
         };
     }
     public function orderPaid($id)
-    { $order = Order::find($id);
+    {   $order = Order::find($id);
+        $booking = Booking::where('id_order', $id)->first();
+        if($booking){
+            $addOrder = 'true';
+            $name = $booking->name;
+            $date = $booking->order_date;
+            $countOfPeople = $booking->count_of_people;
+            $time = $booking->time;
+        } 
         if($order->status == 2) {
             $order->status = 3;
-            $end_time = Carbon::createFromTime(Carbon::now()->setTimezone('Europe/Warsaw')->hour,Carbon::now()->minute,)->addHour()->format('H:i');
-            return view('ordersaved', ['readyTime' => $end_time, 'amount' => 0]);
+            $readyTime = Carbon::createFromTime(Carbon::now()->setTimezone('Europe/Warsaw')->hour,Carbon::now()->minute,)->addHour()->format('H:i');
+            $amount = '0';
+            return view('ordersaved', get_defined_vars());
         } else {
 
             return redirect()->route('home');

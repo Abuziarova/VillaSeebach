@@ -20,6 +20,8 @@ Route::get('/adduser', 'App\Http\Controllers\HomeController@addUser');
 Route::get('/tpay/{id}', 'App\Http\Controllers\TpayController@selectBank' )->name('tpay');
 Route::post('/tpay/create', 'App\Http\Controllers\TpayController@create' );
 Route::get('/orderpaid/{id}',  'App\Http\Controllers\TpayController@orderPaid');
+Route::post('/booking/add', 'App\Http\Controllers\OrdersController@beforeSaveBooking');
+Route::post('/daychange', 'App\Http\Controllers\OrdersController@changeDay');
 
 Route::prefix('menu')->group(function (){
     Route::get('/', 'App\Http\Controllers\MenuController@renderMenuPage');
